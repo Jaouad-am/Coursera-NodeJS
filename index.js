@@ -5,6 +5,10 @@ const morgan = require('morgan');
 const app = express();
 const bodyParser = require('body-parser');
 const server = http.createServer(app);
+
+const dishRouter = require('./routes/dishRouter');
+
+app.use('/dishes', dishRouter);
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
